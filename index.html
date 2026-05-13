@@ -66,14 +66,21 @@
   .nav-links a:hover { color: var(--accent2); }
 
   /* HERO */
-
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
   .hero-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 100px 60px 80px 80px;
+    padding: 100px 80px 80px 80px;
     position: relative;
     z-index: 2;
+    max-width: 800px;
   }
   .hero-tag {
     font-family: 'DM Mono', monospace;
@@ -114,7 +121,7 @@
     font-size: 16px;
     line-height: 1.8;
     color: #a8a8c0;
-    max-width: 480px;
+    max-width: 580px;
     margin-bottom: 48px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.8s;
@@ -143,104 +150,6 @@
     background: var(--accent);
     flex-shrink: 0;
   }
-
-  
-
-  .photo-frame-deco {
-    position: absolute;
-    top: 18px; left: 18px;
-    right: -18px; bottom: -18px;
-    border: 1px solid var(--accent);
-    border-radius: 4px;
-    opacity: 0.22;
-    pointer-events: none;
-  }
-  .photo-frame-deco2 {
-    position: absolute;
-    top: 9px; left: 9px;
-    right: -9px; bottom: -9px;
-    border: 1px solid var(--accent2);
-    border-radius: 4px;
-    opacity: 0.1;
-    pointer-events: none;
-  }
-  .photo-container {
-    position: relative;
-    width: 100%; height: 100%;
-    border-radius: 4px;
-    overflow: hidden;
-    background: var(--card);
-    border: 1px solid var(--border);
-  }
-
-  .photo-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    gap: 16px;
-    padding: 32px;
-    text-align: center;
-  }
-  .photo-placeholder-icon {
-    width: 72px; height: 72px;
-    border-radius: 50%;
-    border: 2px dashed var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .photo-placeholder-icon svg { width: 32px; height: 32px; opacity: 0.3; }
-  .photo-placeholder p {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    text-transform: uppercase;
-    line-height: 1.8;
-  }
-  .photo-upload-btn {
-    background: rgba(124,106,247,0.12);
-    border: 1px solid rgba(124,106,247,0.4);
-    color: var(--accent);
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  .photo-upload-btn:hover { background: rgba(124,106,247,0.22); }
-  #photo-input { display: none; }
-  .photo-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(10,10,15,0.75);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    backdrop-filter: blur(4px);
-  }
-  .photo-container:hover .photo-overlay { opacity: 1; }
-  .photo-overlay span {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--text);
-    text-transform: uppercase;
-  }
-  .photo-corner { position: absolute; width: 24px; height: 24px; }
-  .photo-corner.tl { top: -1px; left: -1px; border-top: 2px solid var(--accent2); border-left: 2px solid var(--accent2); }
-  .photo-corner.tr { top: -1px; right: -1px; border-top: 2px solid var(--accent2); border-right: 2px solid var(--accent2); }
-  .photo-corner.bl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--accent2); border-left: 2px solid var(--accent2); }
-  .photo-corner.br { bottom: -1px; right: -1px; border-bottom: 2px solid var(--accent2); border-right: 2px solid var(--accent2); }
 
   .bg-glow {
     position: fixed; width: 600px; height: 600px; border-radius: 50%;
@@ -378,25 +287,18 @@
   footer { padding: 60px 80px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
   .footer-name { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; }
   .footer-name em { color: var(--accent2); font-style: italic; }
-  .footer-cta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
   .footer-contact { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--muted); text-align: right; line-height: 2; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
 
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { gap: 14px; }
     .nav-links a { font-size: 9px; }
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 120px 24px 40px; }
-    .photo-wrapper { width: 200px; height: 250px; }
+    .hero-left { padding: 120px 24px 60px; }
     section { padding: 80px 24px; }
     .skills-layout { grid-template-columns: 1fr; gap: 40px; }
     .edu-item { grid-template-columns: 90px 1fr; gap: 16px; }
@@ -423,13 +325,13 @@
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — sans cadre photo -->
 <div class="hero">
   <div class="hero-left">
     <p class="hero-tag">// Junior Engineer</p>
     <h1 class="hero-name">Fatma<br><em>Ben Ali</em></h1>
     <div class="hero-roles">
-      <span>Telecom & Network</span>
+      <span>Telecom &amp; Network</span>
       <span class="role-sep">·</span>
       <span>QA Engineer</span>
       <span class="role-sep">·</span>
@@ -449,8 +351,6 @@
       </a>
     </div>
   </div>
-
-  </div>
 </div>
 
 <!-- EXPERIENCE -->
@@ -469,29 +369,26 @@
         <span class="exp-company">Huawei</span>
         <span class="exp-duration">7 mois · 2025</span>
       </div>
-      <h3 class="exp-role">Stagiaire IoT & Data Science</h3>
+      <h3 class="exp-role">Stagiaire IoT &amp; Data Science</h3>
       <ul class="exp-bullets">
         <li>Administré des pipelines Kafka/MQTT sous Linux pour l'ingestion temps réel de données de 100+ capteurs avec une disponibilité de 70 %.</li>
         <li>Développé des modèles de prédiction Python/PyTorch sur les données de 100+ capteurs afin d'anticiper les anomalies et améliorer la prise de décision opérationnelle de 15 %.</li>
         <li>Conçu un dashboard temps réel avec Node.js / React pour la supervision centralisée de 100+ capteurs, réduisant le temps de détection des anomalies de 2 minutes et améliorant la résolution proactive de 10 %.</li>
-        <li>Réalisation d’un tableau de bord Power BI contenant les analyses des données
-supervisées (tendances, alertes et indicateurs de performance).</li>
-     
+        <li>Réalisation d'un tableau de bord Power BI contenant les analyses des données supervisées (tendances, alertes et indicateurs de performance).</li>
       </ul>
     </div>
-    
+
     <div class="exp-item">
       <div class="exp-dot"></div>
       <div class="exp-meta">
         <span class="exp-company">TSE Consult Int</span>
         <span class="exp-duration">4 mois · 2025</span>
       </div>
-      <h3 class="exp-role">Stagiaire Full Stack & Data Science</h3>
+      <h3 class="exp-role">Stagiaire Full Stack &amp; Data Science</h3>
       <ul class="exp-bullets">
-        <li>Développé une application de vente d’ordinateurs en SpringBoot/Angular
-utilisée par 50+ collaborateurs.</li>
-        <li>Intégré un algorithme ML d’optimisation de trajets, réduisant les délais de
-livraison de 10 min et améliorant la ponctualité de 15 .</li>
+        <li>Développé une application de vente d'ordinateurs en SpringBoot/Angular utilisée par 50+ collaborateurs.</li>
+        <li>Intégré un algorithme ML d'optimisation de trajets, réduisant les délais de livraison de 10 min et améliorant la ponctualité de 15 %.</li>
+      </ul>
     </div>
 
     <div class="exp-item">
@@ -534,7 +431,8 @@ livraison de 10 min et améliorant la ponctualité de 15 .</li>
         <li>Mis en place des alertes temps réel et tests de validation, améliorant la fiabilité du monitoring de 25 %.</li>
       </ul>
     </div>
- <div class="exp-item">
+
+    <div class="exp-item">
       <div class="exp-dot"></div>
       <div class="exp-meta">
         <span class="exp-company">Aptyx</span>
@@ -542,12 +440,11 @@ livraison de 10 min et améliorant la ponctualité de 15 .</li>
       </div>
       <h3 class="exp-role">Stagiaire Développeur Full-Stack</h3>
       <ul class="exp-bullets">
-        <li>Contribué au développement d’une plateforme hospitalière Django
-REST/Angular, réduisant les incidents bloquants de 25 %.
-</li>
-        <li> Intégré 7 interfaces Angular avec les services backend Django REST.</li>
+        <li>Contribué au développement d'une plateforme hospitalière Django REST/Angular, réduisant les incidents bloquants de 25 %.</li>
+        <li>Intégré 7 interfaces Angular avec les services backend Django REST.</li>
       </ul>
     </div>
+
   </div>
 </section>
 
@@ -563,37 +460,20 @@ REST/Angular, réduisant les incidents bloquants de 25 %.
     <div class="project-card">
       <span class="project-num">01</span>
       <p class="project-year">2024</p>
-      <h3 class="project-title">Projet IA & IoT – Monitorage ECG/Glucose et optimisation QoS 5G
-(2024)</h3>
-      <p class="project-desc">Prédiction des tendances glycémiques via ECG avec 85 % de précision sur
-datasets biomédicaux.
-Réduction de 30 % de la latence de transmission des données de santé grâce
-à l’optimisation QoS 5G.
-Optimisation de la latence de transmission des données de santé (réduction
-de 30 %) et garantie de 60 % de fiabilité des alertes critiques sous charge
-variable.</p>
+      <h3 class="project-title">Projet IA &amp; IoT – Monitorage ECG/Glucose et optimisation QoS 5G</h3>
+      <p class="project-desc">Prédiction des tendances glycémiques via ECG avec 85 % de précision sur datasets biomédicaux. Réduction de 30 % de la latence de transmission des données de santé grâce à l'optimisation QoS 5G. Garantie de 60 % de fiabilité des alertes critiques sous charge variable.</p>
     </div>
     <div class="project-card">
       <span class="project-num">02</span>
       <p class="project-year">2024</p>
-      <h3 class="project-title">DiabPredict : Analyse des risques de réadmission précoce (2024)</h3>
-      <p class="project-desc">Développement et comparaison de plus de 5 modèles d’apprentissage
-supervisé pour prédire les réadmissions précoces de patients diabétiques,
-avec une précision de 85 % pour l’identification des cas à haut risque.
-Utilisation de l’ACP (Analyse en Composantes Principales) pour réduire de 40
-% la dimensionnalité des données, améliorant ainsi les performances du
-modèle et l’interprétabilité des caractéristiques.</p>
+      <h3 class="project-title">DiabPredict : Analyse des risques de réadmission précoce</h3>
+      <p class="project-desc">Développement et comparaison de plus de 5 modèles d'apprentissage supervisé pour prédire les réadmissions précoces de patients diabétiques, avec une précision de 85 % pour l'identification des cas à haut risque. Utilisation de l'ACP pour réduire de 40 % la dimensionnalité des données.</p>
     </div>
     <div class="project-card">
       <span class="project-num">03</span>
       <p class="project-year">2024</p>
-      <h3 class="project-title">Projet WAN – Optimisation BGP/MPLS & Haute Disponibilité (2024)</h3>
-      <p class="project-desc">   Optimisation d’un WAN sécurisé utilisant BGP et MPLS, améliorant l’efficacité
-du trafic de 40 %.
-Configuration des protocoles réseau principaux sur 50+ équipements Cisco,
-renforçant la robustesse et la fiabilité des opérations réseau.
-Réalisation de tests de connectivité, de routage et de performance réseau,
-garantissant la stabilité et la haute disponibilité de l’infrastructure.</p>
+      <h3 class="project-title">Projet WAN – Optimisation BGP/MPLS &amp; Haute Disponibilité</h3>
+      <p class="project-desc">Optimisation d'un WAN sécurisé utilisant BGP et MPLS, améliorant l'efficacité du trafic de 40 %. Configuration des protocoles réseau principaux sur 50+ équipements Cisco. Réalisation de tests de connectivité, de routage et de performance réseau.</p>
     </div>
     <div class="project-card">
       <span class="project-num">04</span>
@@ -604,7 +484,7 @@ garantissant la stabilité et la haute disponibilité de l’infrastructure.</p>
     <div class="project-card">
       <span class="project-num">05</span>
       <p class="project-year">2023</p>
-      <h3 class="project-title">Application Guide de Voyage (2023)</h3>
+      <h3 class="project-title">Application Guide de Voyage</h3>
       <p class="project-desc">Application touristique cross-platform pour découvrir lieux et guides en Tunisie. Backend RESTful Symfony/MySQL, clients desktop (JavaFX) et mobile (CodeName One), avec géolocalisation et recherche par région.</p>
     </div>
   </div>
@@ -628,7 +508,7 @@ garantissant la stabilité et la haute disponibilité de l’infrastructure.</p>
       </div>
     </div>
     <div class="skill-group">
-      <p class="skill-group-title">// Web & Frameworks</p>
+      <p class="skill-group-title">// Web &amp; Frameworks</p>
       <div class="tags">
         <span class="tag">Angular</span><span class="tag">React</span><span class="tag">Node.js</span>
         <span class="tag">Spring Boot</span><span class="tag">Symfony</span><span class="tag">Django</span>
@@ -636,7 +516,7 @@ garantissant la stabilité et la haute disponibilité de l’infrastructure.</p>
       </div>
     </div>
     <div class="skill-group">
-      <p class="skill-group-title">// Data & ML</p>
+      <p class="skill-group-title">// Data &amp; ML</p>
       <div class="tags">
         <span class="tag">PyTorch</span><span class="tag">Scikit-learn</span><span class="tag">PCA</span>
         <span class="tag">Kafka / MQTT</span><span class="tag">Anomaly Detection</span>
@@ -652,7 +532,7 @@ garantissant la stabilité et la haute disponibilité de l’infrastructure.</p>
       </div>
     </div>
     <div class="skill-group">
-      <p class="skill-group-title">// Systèmes & Réseau</p>
+      <p class="skill-group-title">// Systèmes &amp; Réseau</p>
       <div class="tags">
         <span class="tag">Linux</span><span class="tag">CentOS 7</span><span class="tag">Docker</span>
         <span class="tag">GNS3</span><span class="tag">Cisco IOS</span><span class="tag">BGP / MPLS</span>
@@ -660,11 +540,11 @@ garantissant la stabilité et la haute disponibilité de l’infrastructure.</p>
       </div>
     </div>
     <div class="skill-group">
-      <p class="skill-group-title">// Outils & Tests</p>
+      <p class="skill-group-title">// Outils &amp; Tests</p>
       <div class="tags">
         <span class="tag">Cypress</span><span class="tag">Figma</span><span class="tag">DrawIO</span>
         <span class="tag">StarUML</span><span class="tag">Git</span><span class="tag">IntelliJ</span>
-        <span class="tag">VS Code</span><span class="tag">Cypress</span><span class="tag">Playright</span>
+        <span class="tag">VS Code</span><span class="tag">Playwright</span>
       </div>
     </div>
   </div>
@@ -751,12 +631,10 @@ garantissant la stabilité et la haute disponibilité de l’infrastructure.</p>
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Fatma <em>Ben Ali</em></div>
-
   <div class="footer-contact">+216 51 223 720<br>fatma.benaly@gmail.com</div>
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -779,7 +657,6 @@ garantissant la stabilité et la haute disponibilité de l’infrastructure.</p>
     });
   });
 
-  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
