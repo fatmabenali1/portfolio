@@ -66,13 +66,7 @@
   .nav-links a:hover { color: var(--accent2); }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: relative;
-    overflow: hidden;
-  }
+
   .hero-left {
     display: flex;
     flex-direction: column;
@@ -150,21 +144,8 @@
     flex-shrink: 0;
   }
 
-  /* HERO RIGHT — PHOTO */
-  .hero-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 80px;
-  }
-  .photo-wrapper {
-    position: relative;
-    width: 300px;
-    height: 370px;
-    opacity: 0;
-    animation: fadeIn 1.2s ease forwards 0.8s;
-  }
+  
+
   .photo-frame-deco {
     position: absolute;
     top: 18px; left: 18px;
@@ -415,7 +396,6 @@
     .nav-links a { font-size: 9px; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 120px 24px 40px; }
-    .hero-right { padding: 20px 24px 60px; justify-content: flex-start; }
     .photo-wrapper { width: 200px; height: 250px; }
     section { padding: 80px 24px; }
     .skills-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -470,22 +450,6 @@
     </div>
   </div>
 
-  <!-- PHOTO SECTION -->
-  <div class="hero-right">
-    <div class="photo-wrapper">
-      <div class="photo-frame-deco"></div>
-      <div class="photo-frame-deco2"></div>
-      <div class="photo-container">
-
-          <!-- Remplace "photo.jpg" par le nom de ton fichier photo -->
-       
-      </div>
-
-      <div class="photo-corner tl"></div>
-      <div class="photo-corner tr"></div>
-      <div class="photo-corner bl"></div>
-      <div class="photo-corner br"></div>
-    </div>
   </div>
 </div>
 
